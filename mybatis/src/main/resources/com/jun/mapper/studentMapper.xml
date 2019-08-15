@@ -1,0 +1,119 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jun.mapper.StudentMapper">
+
+    <!--
+     cache
+     cache-ref
+     parameterMap
+     resultMap
+     -->
+
+    <resultMap id="studentResultMap" type="Student">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="age" property="age"></result>
+    </resultMap>
+
+    <sql id="columns">
+        id,name,age
+    </sql>
+    
+    <!--<select id="selectAll" resultMap="studentResultMap">
+        select
+        <include refid="columns"></include>
+        from student
+    </select>-->
+
+    <select id="selectOne" resultType="Student">
+        select
+        <include refid="columns"></include>
+        from student where name=#{0}
+    </select>
+
+    <select id="select" resultType="Student">
+        select
+        <include refid="columns"></include>
+        from student
+        <trim prefix="where" prefixOverrides="and |or ">
+        <!--<where>-->
+        <!--<if test="name != null">
+            and name=#{name}
+        </if>
+        <if test="age != null">
+            and age=#{age}
+        </if>-->
+            <choose>
+                <when test="name != null">
+                    and name=#{name}
+                </when>
+                <when test="age != null">
+                    and age=#{age}
+                </when>
+                <otherwise>
+                    and 1==1
+                </otherwise>
+            </choose>
+        <!--</where>-->
+        </trim>
+    </select>
+
+    <select id="selectYearBlow" resultType="Student">
+        select
+        <include refid="columns"></include>
+        from student
+        where age<![CDATA[<=]]>#{0}
+    </select>
+
+    <select id="selectLikeName" resultType="Student">
+        <bind name="likename" value="'%' + name + '%'"></bind>
+        select
+        <include refid="columns"></include>
+        from student
+        where name like #{likename}
+    </select>
+
+    <select id="selectIn" resultType="Student">
+        select
+        <include refid="columns"></include>
+        from student where age in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+    <insert id="insert" parameterType="Student">
+        insert student values(#{id},#{name},#{age})
+    </insert>
+
+    <insert id="insertList">
+        insert student values
+        <foreach item="item" collection="list" separator=",">
+            (#{item.id},#{item.name},#{item.age})
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="Student">
+        update student
+        <!--set name=#{name}, age=#{age} where id=#{id}-->
+        <!--<set>-->
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">name=#{name},</if>
+            <if test="age != null">age=#{age},</if>
+        </trim>
+        <!--</set>-->
+        where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from student where id=#{0}
+    </delete>
+
+    <delete id="deleteListById">
+        delete from student where id in
+        <foreach item="item" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>
