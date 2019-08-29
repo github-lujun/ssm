@@ -15,6 +15,7 @@
         <module>mybatisspring</module>
         <module>springboot</module>
         <module>springjavaconfig</module>
+        <module>tomcat</module>
     </modules>
 
     <properties>
