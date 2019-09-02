@@ -16,6 +16,7 @@
         <module>springboot</module>
         <module>springjavaconfig</module>
         <module>tomcat</module>
+        <module>springcloud</module>
     </modules>
 
     <properties>
