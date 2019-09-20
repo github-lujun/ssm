@@ -12,7 +12,7 @@
     <artifactId>eureka</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>client</module>
+        <module>provider</module>
         <module>server</module>
         <module>customer</module>
     </modules>
