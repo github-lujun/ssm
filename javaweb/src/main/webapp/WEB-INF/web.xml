@@ -21,6 +21,18 @@
         <param-value>root</param-value>
     </context-param>
 
+    <!--数据库过滤器-->
+    <filter>
+        <filter-name>requestFilter</filter-name>
+        <filter-class>com.jun.filter.HttpServletRequestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>requestFilter</filter-name>
+        <!--todo:通配符-->
+        <url-pattern>/servlet/*</url-pattern>
+    </filter-mapping>
+
+    <!--ServletContext监听器-->
     <listener>
         <listener-class>com.jun.listener.ServletContextInitConfig</listener-class>
     </listener>
