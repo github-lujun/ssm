@@ -9,7 +9,11 @@ import java.sql.SQLException;
 
 public class ServletContextInitConfig implements ServletContextListener {
 
-    private Connection connection;
+    private static Connection connection;
+
+    public static Connection getConnection() {
+        return connection;
+    }
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
