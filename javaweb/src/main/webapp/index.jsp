@@ -1,6 +1,6 @@
 <html>
 <head></head>
 <body>
-<%="hello"%>
+<%="hello,I'm index.jsp"%>
 </body>
 </html>
