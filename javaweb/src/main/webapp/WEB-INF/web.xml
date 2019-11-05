@@ -4,6 +4,27 @@
         PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
+    <context-param>
+        <param-name>jdbc.driver</param-name>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc.url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/leo?serverTimezone=UTC</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc.username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc.password</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>com.jun.listener.ServletContextInitConfig</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>helloServlet</servlet-name>
         <servlet-class>com.jun.controller.HelloServlet</servlet-class>
