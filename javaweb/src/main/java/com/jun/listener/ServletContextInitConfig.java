@@ -9,9 +9,20 @@ import java.sql.SQLException;
 
 public class ServletContextInitConfig implements ServletContextListener {
 
+    private static String url;
+    private static String username;
+    private static String password;
     private static Connection connection;
 
     public static Connection getConnection() {
+        try {
+            connection = DriverManager.getConnection(url, username, password);
+            System.err.println("数据库连接成功, url:"+url+",username:"+username+",password:"+password);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.err.println("数据库连接失败, url:"+url+",username:"+username+",password:"+password);
+            return null;
+        }
         return connection;
     }
 
@@ -28,18 +39,9 @@ public class ServletContextInitConfig implements ServletContextListener {
             return;
         }
 
-        String url = sce.getServletContext().getInitParameter("jdbc.url");
-        String username = sce.getServletContext().getInitParameter("jdbc.username");
-        String password = sce.getServletContext().getInitParameter("jdbc.password");
-
-        try {
-            connection = DriverManager.getConnection(url, username, password);
-            System.err.println("数据库连接成功, url:"+url+",username:"+username+",password:"+password);
-        }catch (Exception e){
-            e.printStackTrace();
-            System.err.println("数据库连接失败, url:"+url+",username:"+username+",password:"+password);
-            return;
-        }
+        url = sce.getServletContext().getInitParameter("jdbc.url");
+        username = sce.getServletContext().getInitParameter("jdbc.username");
+        password = sce.getServletContext().getInitParameter("jdbc.password");
     }
 
     @Override
