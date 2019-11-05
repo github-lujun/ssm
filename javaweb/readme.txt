@@ -6,3 +6,7 @@ CREATE TABLE `account` (
   `userName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+##########DATA:account##########
+insert into account(userName,password) values('lujun','123456');
+insert into account(userName,password) values('guojian','123456');
