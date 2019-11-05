@@ -1,5 +1,7 @@
 package com.jun.listener;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.sql.Connection;
@@ -9,6 +11,7 @@ import java.sql.SQLException;
 
 public class ServletContextInitConfig implements ServletContextListener {
 
+    private static String jdbc_driver;
     private static String url;
     private static String username;
     private static String password;
@@ -26,11 +29,29 @@ public class ServletContextInitConfig implements ServletContextListener {
         return connection;
     }
 
+    public static Connection getCP30Connection(){
+
+        //todo:JDBC数据库连接池CP30
+        ComboPooledDataSource dataSource = new ComboPooledDataSource();
+        try {
+            dataSource.setDriverClass(jdbc_driver);
+            dataSource.setJdbcUrl(url);
+            dataSource.setUser(username);
+            dataSource.setPassword(password);
+            dataSource.setInitialPoolSize(3);
+            dataSource.setMaxPoolSize(15);
+            return dataSource.getConnection();
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("contextInitialized......");
 
-        String jdbc_driver = sce.getServletContext().getInitParameter("jdbc.driver");
+        jdbc_driver = sce.getServletContext().getInitParameter("jdbc.driver");
         try {
             Class.forName(jdbc_driver);
         } catch (Exception e) {

@@ -21,12 +21,12 @@ public class HelloServlet extends HttpServlet {
         //todo:Servlet相关知识点
 
         //todo:JDBC相关知识点
-        //todo:JDBC数据库连接池
         Connection connection = null;
         Statement statement = null;
         ResultSet rs = null;
         try{
-            connection = ServletContextInitConfig.getConnection();
+            //connection = ServletContextInitConfig.getConnection();
+            connection = ServletContextInitConfig.getCP30Connection();
             statement = connection.createStatement();
             ArrayList<Account> accounts = new ArrayList<>();
             String sql="select userName,password from account";
