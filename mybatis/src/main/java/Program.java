@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,10 +18,12 @@ public class Program {
     public static void main(String args[]) throws IOException {
         //System.out.println("hello");
         InputStream resourceAsStream = Resources.getResourceAsStream("mybatis.xml");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);//todo:配置文件如何解析
         try(SqlSession sqlSession = sqlSessionFactory.openSession()){
             //List<Student> selectAll = sqlSession.selectList("com.jun.mapper.StudentMapper.selectAll");
-            StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+
+            StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);//todo:mapper如何实例化
             /*Student student = new Student();
             student.setId(16);
             student.setName("lujun");
