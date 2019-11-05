@@ -1,6 +1,6 @@
 package com.jun.controller;
 
-import com.jun.Account;
+import com.jun.bean.Account;
 import com.jun.listener.ServletContextInitConfig;
 
 import javax.servlet.ServletException;

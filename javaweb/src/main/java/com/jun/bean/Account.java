@@ -1,4 +1,4 @@
-package com.jun;
+package com.jun.bean;
 
 public class Account {
     private String userName;
