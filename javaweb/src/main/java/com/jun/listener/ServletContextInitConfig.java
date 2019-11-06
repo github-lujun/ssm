@@ -20,7 +20,7 @@ public class ServletContextInitConfig implements ServletContextListener {
     public static Connection getConnection() {
         try {
             connection = DriverManager.getConnection(url, username, password);
-            System.err.println("数据库连接成功, url:"+url+",username:"+username+",password:"+password);
+            System.out.println("数据库连接成功, url:"+url+",username:"+username+",password:"+password);
         }catch (Exception e){
             e.printStackTrace();
             System.err.println("数据库连接失败, url:"+url+",username:"+username+",password:"+password);
