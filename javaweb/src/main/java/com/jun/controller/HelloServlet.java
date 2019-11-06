@@ -26,6 +26,13 @@ public class HelloServlet extends HttpServlet {
             List<Account> accounts = selectAll();
             resp.setStatus(200);
             resp.getWriter().println(accounts);
+        }else if(method!=null&&method.equals("add")){
+            boolean add = Add();
+            if(add){
+                resp.setStatus(200);
+            }else {
+                resp.setStatus(500);
+            }
         }else {
             resp.setStatus(404);
         }
@@ -98,5 +105,9 @@ public class HelloServlet extends HttpServlet {
             }
         }
         return accounts;
+    }
+
+    public boolean Add(){
+        return false;
     }
 }
