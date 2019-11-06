@@ -32,7 +32,7 @@ public class BaseDao<T> {
                 Method[] declaredMethods = clazz.getDeclaredMethods();
                 for(Method method:declaredMethods){
                     if(method.getName().startsWith("set")){
-                        String[] gets = method.getName().split("get");
+                        String[] gets = method.getName().split("set");
                         method.invoke(t,rs.getString(gets[1].toLowerCase()));
                     }
                 }
