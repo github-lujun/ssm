@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *todo:Servlet相关知识点
  */
 public class HelloServlet extends HttpServlet {
     private AccountService accountService;
@@ -28,10 +28,9 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("hello,I'm HelloServlet.");
-        //todo:Servlet相关知识点
+
         String method = req.getParameter("method");
         //todo:路由
-        //todo:JDBC相关知识点
         if(method!=null&&method.equals("selectAll")){
             List<Account> accounts = selectAll();
             resp.setStatus(200);

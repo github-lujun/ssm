@@ -11,6 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * todo:JDBC相关知识点
+ * 预处理语句+数据库连接池+事务
+ */
 public class AccountDaoImpl implements AccountDao {
     /**
      *预处理语句+数据库连接池
@@ -97,6 +101,7 @@ public class AccountDaoImpl implements AccountDao {
             connection = ServletContextInitConfig.getCP30Connection();
             //事务
             connection.setAutoCommit(false);//不自动commit
+
             /*=======================================================*/
             //String sql="insert into account(userName,password) values('"+account.getUserName()+"','"+account.getPassword()+"')";
             String sql="insert into account(userName,password) values(?,?)";
