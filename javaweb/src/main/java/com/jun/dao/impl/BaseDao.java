@@ -37,12 +37,6 @@ public class BaseDao<T> {
                     }
                 }
                 list.add(t);
-                /*Account account = new Account();
-                String userName = rs.getString("userName");
-                account.setUserName(userName);
-                String password = rs.getString("password");
-                account.setPassword(password);
-                accounts.add(account);*/
             }
             /*=======================================================*/
 
