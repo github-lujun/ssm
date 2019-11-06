@@ -7,6 +7,9 @@ import com.jun.service.AccountService;
 
 import java.util.List;
 
+/**
+ * todo:解耦-----spring ioc/aop-----
+ */
 public class AccountServiceImpl implements AccountService {
     private AccountDao accountDao;
     public AccountServiceImpl(){

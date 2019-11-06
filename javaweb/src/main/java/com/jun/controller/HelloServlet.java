@@ -30,7 +30,7 @@ public class HelloServlet extends HttpServlet {
         resp.getWriter().println("hello,I'm HelloServlet.");
 
         String method = req.getParameter("method");
-        //todo:路由
+        //todo:路由-----spring mvc-----
         if(method!=null&&method.equals("selectAll")){
             List<Account> accounts = selectAll();
             resp.setStatus(200);

@@ -24,7 +24,7 @@ public class AccountDaoImpl implements AccountDao {
     public List<Account> selectAll() {
         List<Account> accounts = new ArrayList<>();
 
-        //todo:重构抽出公共逻辑
+        //todo:重构抽出公共逻辑-----mybatis------
         Connection connection = null;
         //Statement statement = null;
         PreparedStatement statement = null;
