@@ -60,11 +60,11 @@ public class HelloServlet extends HttpServlet {
                 accounts.add(account);
             }
             //System.out.println(accounts);
-            //connection.commit();//提交
+            //connection.commit();//todo:提交
         }catch (Exception ex){
             ex.printStackTrace();
             /*try {
-                connection.rollback();//回滚
+                connection.rollback();//todo:回滚
             } catch (SQLException e) {
                 e.printStackTrace();
             }*/
