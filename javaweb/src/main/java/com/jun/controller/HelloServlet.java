@@ -53,7 +53,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     /**
-     *
+     *预处理语句+数据库连接池
      * @return
      */
     public List<Account> selectAll(){
@@ -122,7 +122,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     /**
-     *
+     *事务
      * @param account
      * @return
      */
