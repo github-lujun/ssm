@@ -130,7 +130,7 @@ public class HelloServlet extends HttpServlet {
             statement = connection.prepareStatement(sql);//todo:预处理语句
             statement.setString(1,account.getUserName());
             statement.setString(2,account.getPassword());
-            boolean execute = statement.execute(sql);
+            int i = statement.executeUpdate();//!!注意:此处使用无参数的方法!!
             /*=======================================================*/
 
             connection.commit();//提交
