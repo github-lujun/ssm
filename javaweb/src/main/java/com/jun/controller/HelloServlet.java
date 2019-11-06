@@ -13,22 +13,41 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("hello,I'm HelloServlet.");
         //todo:Servlet相关知识点
+        String method = req.getParameter("method");
+        if(method!=null&&method.equals("selectAll")){
+            List<Account> accounts = selectAll();
+            resp.setStatus(200);
+            resp.getWriter().println(accounts);
+        }else {
+            resp.setStatus(404);
+        }
 
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doPost(req,resp);
+    }
+
+    public List<Account> selectAll(){
         //todo:JDBC相关知识点
+        List<Account> accounts = new ArrayList<>();
         Connection connection = null;
         Statement statement = null;
         ResultSet rs = null;
         try{
             //connection = ServletContextInitConfig.getConnection();
             connection = ServletContextInitConfig.getCP30Connection();
+            //todo:事务
             statement = connection.createStatement();
-            ArrayList<Account> accounts = new ArrayList<>();
+
             String sql="select userName,password from account";
             rs = statement.executeQuery(sql);//查询
             while (rs.next()){
@@ -39,7 +58,7 @@ public class HelloServlet extends HttpServlet {
                 account.setPassword(password);
                 accounts.add(account);
             }
-            System.out.println(accounts);
+            //System.out.println(accounts);
             //connection.commit();//提交
         }catch (Exception ex){
             ex.printStackTrace();
@@ -77,10 +96,6 @@ public class HelloServlet extends HttpServlet {
                 }
             }
         }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doPost(req,resp);
+        return accounts;
     }
 }

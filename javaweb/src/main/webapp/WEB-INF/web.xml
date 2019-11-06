@@ -37,6 +37,7 @@
         <listener-class>com.jun.listener.ServletContextInitConfig</listener-class>
     </listener>
 
+    <!--HelloServlet控制器-->
     <servlet>
         <servlet-name>helloServlet</servlet-name>
         <servlet-class>com.jun.controller.HelloServlet</servlet-class>
