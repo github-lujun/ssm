@@ -2,6 +2,8 @@ package com.jun.controller;
 
 import com.jun.bean.Account;
 import com.jun.listener.ServletContextInitConfig;
+import com.jun.service.AccountService;
+import com.jun.service.impl.AccountServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +18,13 @@ import java.util.List;
  *
  */
 public class HelloServlet extends HttpServlet {
+    private AccountService accountService;
+
+    public HelloServlet(){
+        super();
+        accountService = new AccountServiceImpl();
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("hello,I'm HelloServlet.");
