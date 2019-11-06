@@ -35,7 +35,7 @@ public class HelloServlet extends HttpServlet {
             }
             account.setUserName(chars.toString());
             account.setPassword(chars.toString());
-            boolean add = Add(account);
+            boolean add = add(account);
             if(add){
                 resp.setStatus(200);
             }else {
@@ -126,7 +126,7 @@ public class HelloServlet extends HttpServlet {
      * @param account
      * @return
      */
-    public boolean Add(Account account){
+    public boolean add(Account account){
         Connection connection = null;
         //Statement statement = null;
         PreparedStatement statement = null;
