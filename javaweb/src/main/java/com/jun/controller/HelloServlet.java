@@ -21,6 +21,7 @@ public class HelloServlet extends HttpServlet {
         resp.getWriter().println("hello,I'm HelloServlet.");
         //todo:Servlet相关知识点
         String method = req.getParameter("method");
+        //todo:路由
         if(method!=null&&method.equals("selectAll")){
             List<Account> accounts = selectAll();
             resp.setStatus(200);
