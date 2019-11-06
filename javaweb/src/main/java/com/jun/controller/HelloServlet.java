@@ -129,8 +129,8 @@ public class HelloServlet extends HttpServlet {
             //String sql="insert into account(userName,password) values('"+account.getUserName()+"','"+account.getPassword()+"')";
             String sql="insert into account(userName,password) values(?,?)";
             //statement = connection.createStatement();
-            //connection.prepareCall();//todo:??
-            statement = connection.prepareStatement(sql);//todo:预处理语句
+            //connection.prepareCall();//todo:调用存储过程
+            statement = connection.prepareStatement(sql);//预处理语句
             statement.setString(1,account.getUserName());
             statement.setString(2,account.getPassword());
             int i = statement.executeUpdate();//!!注意:此处使用无参数的方法!!
