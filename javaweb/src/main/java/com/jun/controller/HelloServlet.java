@@ -56,6 +56,7 @@ public class HelloServlet extends HttpServlet {
 
         List<Account> accounts = new ArrayList<>();
 
+        //todo:重构抽出公共逻辑
         Connection connection = null;
         Statement statement = null;
         ResultSet rs = null;
@@ -121,22 +122,22 @@ public class HelloServlet extends HttpServlet {
         try{
             //connection = ServletContextInitConfig.getConnection();
             connection = ServletContextInitConfig.getCP30Connection();
-            //todo:事务
+            //事务
             connection.setAutoCommit(false);//不自动commit
             /*=======================================================*/
             String sql="insert into account(userName,password) values('"+account.getUserName()+"','"+account.getPassword()+"')";
             //String sql="insert into account(userName,password) values({0},{1})";
             statement = connection.createStatement();
-            //statement = connection.prepareStatement(sql);//预处理语句
+            //statement = connection.prepareStatement(sql);//todo:预处理语句
             boolean execute = statement.execute(sql);
             /*=======================================================*/
 
-            connection.commit();//todo:提交
+            connection.commit();//提交
             return true;
         }catch (Exception ex){
             ex.printStackTrace();
             try {
-                connection.rollback();//todo:回滚
+                connection.rollback();//回滚
             } catch (SQLException e) {
                 e.printStackTrace();
             }
