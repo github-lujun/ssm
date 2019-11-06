@@ -22,12 +22,20 @@ public class HelloServlet extends HttpServlet {
         //todo:Servlet相关知识点
         String method = req.getParameter("method");
         //todo:路由
+        //todo:JDBC相关知识点
         if(method!=null&&method.equals("selectAll")){
             List<Account> accounts = selectAll();
             resp.setStatus(200);
             resp.getWriter().println(accounts);
         }else if(method!=null&&method.equals("add")){
-            boolean add = Add();
+            Account account = new Account();
+            long[] chars = new long[8];
+            for(int i=0;i<chars.length;i++){
+                chars[i] = (int)(Math.random()*10);
+            }
+            account.setUserName(chars.toString());
+            account.setPassword(chars.toString());
+            boolean add = Add(account);
             if(add){
                 resp.setStatus(200);
             }else {
@@ -45,17 +53,18 @@ public class HelloServlet extends HttpServlet {
     }
 
     public List<Account> selectAll(){
-        //todo:JDBC相关知识点
+
         List<Account> accounts = new ArrayList<>();
+
         Connection connection = null;
         Statement statement = null;
         ResultSet rs = null;
         try{
             //connection = ServletContextInitConfig.getConnection();
             connection = ServletContextInitConfig.getCP30Connection();
-            //todo:事务
             statement = connection.createStatement();
 
+            /*=======================================================*/
             String sql="select userName,password from account";
             rs = statement.executeQuery(sql);//查询
             while (rs.next()){
@@ -66,15 +75,11 @@ public class HelloServlet extends HttpServlet {
                 account.setPassword(password);
                 accounts.add(account);
             }
+            /*=======================================================*/
+
             //System.out.println(accounts);
-            //connection.commit();//todo:提交
         }catch (Exception ex){
             ex.printStackTrace();
-            /*try {
-                connection.rollback();//todo:回滚
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }*/
         }finally {
             if(rs!=null){
                 try {
@@ -104,10 +109,66 @@ public class HelloServlet extends HttpServlet {
                 }
             }
         }
+
         return accounts;
     }
 
-    public boolean Add(){
-        return false;
+    public boolean Add(Account account){
+
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet rs = null;
+        try{
+            //connection = ServletContextInitConfig.getConnection();
+            connection = ServletContextInitConfig.getCP30Connection();
+            //todo:事务
+            connection.setAutoCommit(false);//不自动commit
+            /*=======================================================*/
+            String sql="insert into account(userName,password) values('"+account.getUserName()+"','"+account.getPassword()+"')";
+            //String sql="insert into account(userName,password) values({0},{1})";
+            statement = connection.createStatement();
+            //statement = connection.prepareStatement(sql);//预处理语句
+            boolean execute = statement.execute(sql);
+            /*=======================================================*/
+
+            connection.commit();//todo:提交
+            return true;
+        }catch (Exception ex){
+            ex.printStackTrace();
+            try {
+                connection.rollback();//todo:回滚
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return false;
+        }finally {
+            if(rs!=null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connection!=null){
+                try {
+                    if(!connection.isClosed()) {
+                        connection.close();
+                    }
+                } catch (SQLException e) {
+                    try {
+                        connection.close();
+                    } catch (SQLException exc) {
+                        exc.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 }
