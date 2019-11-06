@@ -8,10 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,7 +114,8 @@ public class HelloServlet extends HttpServlet {
     public boolean Add(Account account){
 
         Connection connection = null;
-        Statement statement = null;
+        //Statement statement = null;
+        PreparedStatement statement = null;
         ResultSet rs = null;
         try{
             //connection = ServletContextInitConfig.getConnection();
@@ -125,10 +123,13 @@ public class HelloServlet extends HttpServlet {
             //事务
             connection.setAutoCommit(false);//不自动commit
             /*=======================================================*/
-            String sql="insert into account(userName,password) values('"+account.getUserName()+"','"+account.getPassword()+"')";
-            //String sql="insert into account(userName,password) values({0},{1})";
-            statement = connection.createStatement();
-            //statement = connection.prepareStatement(sql);//todo:预处理语句
+            //String sql="insert into account(userName,password) values('"+account.getUserName()+"','"+account.getPassword()+"')";
+            String sql="insert into account(userName,password) values(?,?)";
+            //statement = connection.createStatement();
+            //connection.prepareCall();//todo:??
+            statement = connection.prepareStatement(sql);//todo:预处理语句
+            statement.setString(1,account.getUserName());
+            statement.setString(2,account.getPassword());
             boolean execute = statement.execute(sql);
             /*=======================================================*/
 
