@@ -55,16 +55,19 @@ public class HelloServlet extends HttpServlet {
 
         //todo:重构抽出公共逻辑
         Connection connection = null;
-        Statement statement = null;
+        //Statement statement = null;
+        PreparedStatement statement = null;
         ResultSet rs = null;
         try{
             //connection = ServletContextInitConfig.getConnection();
             connection = ServletContextInitConfig.getCP30Connection();
-            statement = connection.createStatement();
 
             /*=======================================================*/
             String sql="select userName,password from account";
-            rs = statement.executeQuery(sql);//查询
+            //statement = connection.createStatement();
+            statement = connection.prepareStatement(sql);
+            //rs = statement.executeQuery(sql);//查询
+            rs = statement.executeQuery();//预处理查询使用无参方法
             while (rs.next()){
                 Account account = new Account();
                 String userName = rs.getString("userName");
