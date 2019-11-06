@@ -12,6 +12,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,6 +52,10 @@ public class HelloServlet extends HttpServlet {
         this.doPost(req,resp);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Account> selectAll(){
 
         List<Account> accounts = new ArrayList<>();
@@ -114,8 +121,12 @@ public class HelloServlet extends HttpServlet {
         return accounts;
     }
 
+    /**
+     *
+     * @param account
+     * @return
+     */
     public boolean Add(Account account){
-
         Connection connection = null;
         //Statement statement = null;
         PreparedStatement statement = null;
