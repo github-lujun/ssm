@@ -18,6 +18,7 @@
         <module>tomcat</module>
         <module>springcloud</module>
         <module>javaweb</module>
+        <module>java</module>
     </modules>
 
     <properties>
