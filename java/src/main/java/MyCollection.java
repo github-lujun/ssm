@@ -9,6 +9,9 @@ public class MyCollection {
         /*list = new Vector<>();
         list = new Stack<>();*/
 
+        Queue<Integer> queue = new LinkedList<>();
+        Deque<Integer> deque = new LinkedList<>();
+
         Set<Integer> set = new HashSet<>();
         set = new TreeSet<>();
         set = new LinkedHashSet<>();
