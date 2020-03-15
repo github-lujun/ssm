@@ -1,0 +1,22 @@
+import java.util.*;
+
+@SuppressWarnings("all")
+public class MyCollection {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list = new LinkedList<>();
+        //过时
+        /*list = new Vector<>();
+        list = new Stack<>();*/
+
+        Set<Integer> set = new HashSet<>();
+        set = new TreeSet<>();
+        set = new LinkedHashSet<>();
+
+        Map<String,Integer> map = new HashMap<>();
+        map = new TreeMap<>();
+        map = new LinkedHashMap<>();
+        //过时
+        /*map = new Hashtable<>();*/
+    }
+}
