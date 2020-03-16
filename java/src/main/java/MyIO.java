@@ -45,5 +45,16 @@ public class MyIO {
         bufferedReader.close();
         inputStreamReader.close();
         inputStream.close();
+
+        /**
+         * 1.bio
+         * 2.nio
+         * 3.aio
+         * */
+
+        /**
+         * 1.gzip
+         * 2.zip
+         * */
     }
 }
