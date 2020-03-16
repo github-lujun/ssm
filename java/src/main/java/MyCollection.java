@@ -21,5 +21,12 @@ public class MyCollection {
         map = new LinkedHashMap<>();
         //过时
         /*map = new Hashtable<>();*/
+
+        /**
+         * 1.顺序查找树
+         * 2.B-树
+         * 3.B+树
+         * 4.红黑树
+         * */
     }
 }
