@@ -25,5 +25,23 @@ public class MyThread {
         thread.wait();
         thread.join();
         thread.interrupt();
+
+        /**
+         * 线程的同步
+         * 0.volatile
+         * 1.synchronized
+         * 2.Lock
+         * 3.消费者与生产者
+         * */
+
+        /**
+         * 线程的构件
+         * */
+
+        /**
+         * 1.同步容器
+         * 2.并发容器
+         * 3.原子类
+         * */
     }
 }
