@@ -20,6 +20,10 @@
         <module>javaweb</module>
         <module>java</module>
         <module>springautowire</module>
+        <module>mysql</module>
+        <module>redis</module>
+        <module>mq</module>
+        <module>netty</module>
     </modules>
 
     <properties>
