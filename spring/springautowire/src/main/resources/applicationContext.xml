@@ -11,5 +11,6 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.jun"></context:component-scan>
+    <context:component-scan base-package="com.jun"/>
+    <aop:aspectj-autoproxy/>
 </beans>
