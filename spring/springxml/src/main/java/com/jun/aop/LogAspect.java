@@ -9,4 +9,8 @@ public class LogAspect {
     public void before(){
         System.out.println("hello");
     }
+
+    public void after(){
+        System.out.println("bye");
+    }
 }

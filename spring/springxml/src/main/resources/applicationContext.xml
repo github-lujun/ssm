@@ -11,9 +11,22 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <aop:aspectj-autoproxy/>
+
     <bean id="peopleService" class="com.jun.service.impl.PeopleServiceImpl">
         <property name="peopleDao" ref="peopleDao"></property>
     </bean>
 
     <bean id="peopleDao" class="com.jun.dao.impl.PeopleDaoImpl"></bean>
+
+    <bean id="logAspect" class="com.jun.aop.LogAspect"></bean>
+
+    <aop:config>
+        <aop:aspect ref="logAspect">
+            <aop:pointcut id="logPointcut"
+                          expression="execution(* com.jun.service.impl.*.*(..))"/>
+            <aop:before pointcut-ref="logPointcut" method="before"></aop:before>
+            <aop:after pointcut-ref="logPointcut" method="after"></aop:after>
+        </aop:aspect>
+    </aop:config>
 </beans>
