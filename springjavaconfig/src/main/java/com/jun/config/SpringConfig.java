@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfig {
     @Bean
     public Person person(){
-        return new Person("lujun");
+        return new Person();
     }
 }
