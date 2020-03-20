@@ -11,13 +11,9 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 相当于在applicationContext文件中配置<bean>标签定义bean，但是需要在类上添加@Component注解 -->
-    <!-- 在属性的注解上添加@Autowire相当于在<bean>标签的autofire="byType" -->
-    <context:component-scan base-package="com.jun.pojo,com.jun.service,com.jun.aop"></context:component-scan>
+    <bean id="peopleService" class="com.jun.service.impl.PeopleServiceImpl">
+        <property name="peopleDao" ref="peopleDao"></property>
+    </bean>
 
-    <!--<bean id="book" class="com.jun.pojo.Book"></bean>
-    <bean id="person" class="com.jun.pojo.Person"></bean>-->
-
-    <aop:aspectj-autoproxy/>
-
+    <bean id="peopleDao" class="com.jun.dao.impl.PeopleDaoImpl"></bean>
 </beans>
