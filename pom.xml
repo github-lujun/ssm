@@ -11,19 +11,17 @@
     <modules>
         <module>mybatis</module>
         <module>springmvc</module>
-        <module>spring</module>
         <module>mybatisspring</module>
         <module>springboot</module>
-        <module>springjavaconfig</module>
         <module>tomcat</module>
         <module>springcloud</module>
         <module>javaweb</module>
         <module>java</module>
-        <module>springautowire</module>
         <module>mysql</module>
         <module>redis</module>
         <module>mq</module>
         <module>netty</module>
+        <module>spring</module>
     </modules>
 
     <properties>
