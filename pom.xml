@@ -19,6 +19,7 @@
         <module>springcloud</module>
         <module>javaweb</module>
         <module>java</module>
+        <module>springautowire</module>
     </modules>
 
     <properties>
