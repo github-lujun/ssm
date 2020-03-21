@@ -45,6 +45,7 @@
                     <include>**/*.jsp</include>
                     <include>**/*.html</include>
                     <include>**/*.xml</include>
+                    <include>**/*</include>
                 </includes>
             </resource>
         </resources>
