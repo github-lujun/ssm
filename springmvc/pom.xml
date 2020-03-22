@@ -25,20 +25,19 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
     
     <build>
-    	<resources>
-    		<resource>
-    			<directory>src/main/java/webapp/WEB-INF</directory>
-    			<includes>
-    				<include>**/*.jsp</include>
-    				<include>**/*.html</include>
-    				<include>**/*.xml</include>
-    			</includes>
-    		</resource>
-    	</resources>
+        <plugins>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+        </plugins>
     </build>
 </project>

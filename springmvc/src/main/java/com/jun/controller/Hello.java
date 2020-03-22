@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Hello {
 	@RequestMapping("/hello")
 	public String say() {
-		return "/index.jsp";
+		System.out.println("this is "+this.getClass().getName());
+		return "good";
 	}
 }
