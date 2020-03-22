@@ -7,5 +7,6 @@
 </head>
 <body>
 good
+<%=request.getAttribute("school")%>
 </body>
 </html>
