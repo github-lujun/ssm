@@ -13,5 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>springmvcannotation</module>
+        <module>springmvcxml</module>
     </modules>
 </project>
