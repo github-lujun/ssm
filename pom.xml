@@ -22,6 +22,7 @@
         <module>netty</module>
         <module>spring</module>
         <module>springmvc</module>
+        <module>rpc</module>
     </modules>
 
     <properties>
