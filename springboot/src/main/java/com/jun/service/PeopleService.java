@@ -1,6 +1,5 @@
 package com.jun.service;
 
-import com.jun.pojo.Person;
 import com.jun.pojo.Student;
 
 import java.util.List;
