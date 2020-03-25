@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mybatis</module>
-        <module>mybatisspring</module>
+        <module>springmybatis</module>
         <module>springboot</module>
         <module>tomcat</module>
         <module>springcloud</module>
