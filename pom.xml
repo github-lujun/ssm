@@ -26,6 +26,7 @@
         <module>springjdbc</module>
         <module>logback</module>
         <module>quartz</module>
+        <module>shiro</module>
     </modules>
 
     <properties>
