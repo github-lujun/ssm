@@ -25,7 +25,7 @@
         <module>rpc</module>
         <module>springjdbc</module>
         <module>logback</module>
-        <module>quarts</module>
+        <module>quartz</module>
     </modules>
 
     <properties>
