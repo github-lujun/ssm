@@ -23,6 +23,7 @@
         <module>spring</module>
         <module>springmvc</module>
         <module>rpc</module>
+        <module>springjdbc</module>
     </modules>
 
     <properties>
