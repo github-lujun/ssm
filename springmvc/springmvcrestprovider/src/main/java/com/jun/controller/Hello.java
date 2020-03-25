@@ -25,14 +25,4 @@ public class Hello {
 		System.out.println(comer);
 		return comer;
 	}
-
-	@RequestMapping("/comejson")
-	public Comer come(){
-		RestTemplate restTemplate = new RestTemplate();
-		Comer request = new Comer();
-		request.setName("lujun");
-		request.setAge(22);
-		Comer comer = restTemplate.postForObject("http://localhost:8080/springmvcrestprovider-1.0-SNAPSHOT/come", request,Comer.class);
-		return comer;
-	}
 }

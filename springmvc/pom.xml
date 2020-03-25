@@ -15,5 +15,6 @@
         <module>springmvcannotation</module>
         <module>springmvcxml</module>
         <module>springmvcrest</module>
+        <module>springmvcrestprovider</module>
     </modules>
 </project>
