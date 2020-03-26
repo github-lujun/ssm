@@ -11,11 +11,12 @@ import org.apache.shiro.util.Factory;
 public class Program {
     public static void main(String[] args) {
         //Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
-        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-realm.ini");
+        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-jdbc-realm.ini");
         SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken("lujun1", "root1");
+        //UsernamePasswordToken token = new UsernamePasswordToken("lujun", "root");
+        UsernamePasswordToken token = new UsernamePasswordToken("zhang", "123");
         try {
             subject.login(token);
         }catch (Exception e){
