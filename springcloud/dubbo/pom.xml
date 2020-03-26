@@ -15,7 +15,6 @@
         <module>dubboprovider</module>
         <module>dubboclient</module>
         <module>dubbocommon</module>
-        <module>dubboregister</module>
     </modules>
 
 
