@@ -10,11 +10,12 @@ import org.apache.shiro.util.Factory;
  * */
 public class Program {
     public static void main(String[] args) {
-        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
+        //Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
+        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-realm.ini");
         SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken("leo", "root");
+        UsernamePasswordToken token = new UsernamePasswordToken("lujun1", "root1");
         try {
             subject.login(token);
         }catch (Exception e){
