@@ -14,8 +14,32 @@
         http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
     <mybatis:scan base-package="com.jun.mapper"></mybatis:scan>
-    
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+    <!--springjdbc-->
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/leo?serverTimezone=UTC"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>-->
+
+    <!--springdbcp-->
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/leo?serverTimezone=UTC"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>-->
+
+    <!--springc3p0-->
+    <!--<bean id="dataSource" class="com.mchange.v2.c3p0.DriverManagerDataSource">
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/leo?serverTimezone=UTC"/>
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
+    </bean>-->
+
+    <!--springdruid-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/leo?serverTimezone=UTC"/>
         <property name="username" value="root"/>
