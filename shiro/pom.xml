@@ -11,5 +11,21 @@
 
     <artifactId>shiro</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
 
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <includes>
+                    <include>**/*.ini</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>

@@ -47,6 +47,7 @@
         <dubbo>2.7.5</dubbo>
         <curator>4.3.0</curator><!--dubbo dependcy-->
         <zookeeper>3.6.0</zookeeper>
+        <shiro>1.2.2</shiro>
         <quartz>2.3.2</quartz>
         <tomcat>2.2</tomcat>
         <maven>3.8.1</maven>
@@ -198,6 +199,14 @@
                 <version>${zookeeper}</version>
             </dependency>
             <!--dubbo/zookeeper end-->
+
+            <!--shiro start-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro}</version>
+            </dependency>
+            <!--shiro end-->
 
             <!--quartz start-->
             <dependency>
