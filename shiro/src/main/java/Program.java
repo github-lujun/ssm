@@ -11,7 +11,7 @@ import org.apache.shiro.util.Factory;
 public class Program {
     public static void main(String[] args) {
         //Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
-        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-jdbc-realm.ini");
+        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-authenticator-all-success.ini");
         SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
@@ -23,9 +23,13 @@ public class Program {
             e.printStackTrace();
         }
 
-        System.out.println(subject.isAuthenticated());
+        int size = subject.getPrincipals().asList().size();
 
-        subject.logout();
-        System.out.println(subject.isAuthenticated());
+        System.out.println(size);
+
+        //System.out.println(subject.isAuthenticated());
+
+        //subject.logout();
+        //System.out.println(subject.isAuthenticated());
     }
 }
