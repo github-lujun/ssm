@@ -9,38 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>shiro</artifactId>
+    <artifactId>springshiro</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
         </dependency>
 
         <dependency>
@@ -48,26 +23,35 @@
             <artifactId>shiro-web</artifactId>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <resources>
             <resource>
-                <directory>src/main/resources/</directory>
+                <directory>src/main/webapp</directory>
                 <includes>
-                    <include>**/*.ini</include>
+                    <include>**/*.html</include>
+                    <include>**/*.jsp</include>
+                    <include>**/*.xml</include>
                 </includes>
             </resource>
             <resource>
-                <directory>src/main/webapp</directory>
+                <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.xml</include>
+                    <include>**/*.html</include>
+                    <include>**/*.css</include>
+                    <include>**/*.js</include>
                 </includes>
             </resource>
         </resources>
         <plugins>
             <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
             </plugin>

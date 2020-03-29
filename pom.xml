@@ -27,6 +27,7 @@
         <module>logback</module>
         <module>quartz</module>
         <module>shiro</module>
+        <module>springshiro</module>
     </modules>
 
     <properties>
@@ -46,12 +47,12 @@
         <mybatis.spring.boot>2.1.0</mybatis.spring.boot>
         <aspectj>1.9.4</aspectj>
         <spring>5.2.4.RELEASE</spring>
+        <shiro>1.5.1</shiro>
         <spring.boot>2.2.5.RELEASE</spring.boot>
         <spring.cloud>2.2.2.RELEASE</spring.cloud>
         <dubbo>2.7.5</dubbo>
         <curator>4.3.0</curator><!--dubbo dependcy-->
         <zookeeper>3.6.0</zookeeper>
-        <shiro>1.2.2</shiro>
         <quartz>2.3.2</quartz>
         <tomcat>2.2</tomcat>
         <maven>3.8.1</maven>
@@ -180,6 +181,26 @@
             </dependency>
             <!--spring framework end-->
 
+            <!-- shiro start -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro}</version>
+            </dependency>
+            <!-- shiro end -->
+
             <!--spring boot start-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -227,14 +248,6 @@
                 <version>${zookeeper}</version>
             </dependency>
             <!--dubbo/zookeeper end-->
-
-            <!--shiro start-->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-core</artifactId>
-                <version>${shiro}</version>
-            </dependency>
-            <!--shiro end-->
 
             <!--quartz start-->
             <dependency>
