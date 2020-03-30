@@ -48,6 +48,7 @@
         <aspectj>1.9.4</aspectj>
         <spring>5.2.4.RELEASE</spring>
         <redis>3.2.0</redis>
+        <mq>5.8.0</mq>
         <netty>5.0.0.Alpha2</netty>
         <shiro>1.5.1</shiro>
         <spring.boot>2.2.5.RELEASE</spring.boot>
@@ -190,6 +191,14 @@
                 <version>${redis}</version>
             </dependency>
             <!--redis end-->
+
+            <!--mq end-->
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>${mq}</version>
+            </dependency>
+            <!--mq end-->
 
             <!--netty start-->
             <dependency>
