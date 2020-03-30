@@ -47,6 +47,7 @@
         <mybatis.spring.boot>2.1.0</mybatis.spring.boot>
         <aspectj>1.9.4</aspectj>
         <spring>5.2.4.RELEASE</spring>
+        <netty>5.0.0.Alpha2</netty>
         <shiro>1.5.1</shiro>
         <spring.boot>2.2.5.RELEASE</spring.boot>
         <spring.cloud>2.2.2.RELEASE</spring.cloud>
@@ -180,6 +181,12 @@
                 <version>${spring}</version>
             </dependency>
             <!--spring framework end-->
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty}</version>
+            </dependency>
 
             <!-- shiro start -->
             <dependency>
