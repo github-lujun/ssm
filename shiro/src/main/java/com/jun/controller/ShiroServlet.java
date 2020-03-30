@@ -1,6 +1,7 @@
 package com.jun.controller;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 
 import javax.servlet.ServletException;
@@ -20,6 +21,8 @@ public class ShiroServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken("zhang","123");
+        subject.login(token);
         boolean authenticated = subject.isAuthenticated();
         System.out.println(authenticated);
     }
