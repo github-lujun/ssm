@@ -47,6 +47,7 @@
         <mybatis.spring.boot>2.1.0</mybatis.spring.boot>
         <aspectj>1.9.4</aspectj>
         <spring>5.2.4.RELEASE</spring>
+        <redis>3.2.0</redis>
         <netty>5.0.0.Alpha2</netty>
         <shiro>1.5.1</shiro>
         <spring.boot>2.2.5.RELEASE</spring.boot>
@@ -182,11 +183,21 @@
             </dependency>
             <!--spring framework end-->
 
+            <!--redis start-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis}</version>
+            </dependency>
+            <!--redis end-->
+
+            <!--netty start-->
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty}</version>
             </dependency>
+            <!--netty end-->
 
             <!-- shiro start -->
             <dependency>
