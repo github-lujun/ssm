@@ -20,6 +20,8 @@
         <module>config</module>
         <module>dubbo</module>
         <module>zookeeper</module>
+        <module>gateway</module>
+        <module>consul</module>
     </modules>
 
 
