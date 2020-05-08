@@ -1,9 +1,9 @@
 spring:
   application:
-    name: feign
+    name: ribbon
 
 server:
-  port: 8768
+  port: 8765
 
 eureka:
   client:

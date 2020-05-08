@@ -1,6 +1,6 @@
 spring:
   application:
-    name: feign
+    name: zuul
 
 server:
   port: 8768

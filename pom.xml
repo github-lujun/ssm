@@ -62,6 +62,7 @@
         <servo-core>0.12.21</servo-core>
         <archaius-core>0.7.6</archaius-core>
         <woodstox-core>5.2.1</woodstox-core>
+        <spring.feign>1.4.7.RELEASE</spring.feign>
         <spring.cloud>2.2.2.RELEASE</spring.cloud>
         <dubbo>2.7.5</dubbo>
         <curator>4.3.0</curator><!--dubbo dependcy-->
@@ -324,12 +325,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-config-server</artifactId>
-                <version>${spring.cloud}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.netflix.eureka</groupId>
                 <artifactId>eureka-client</artifactId>
                 <version>${eureka}</version>
@@ -350,6 +345,24 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${spring.cloud}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${spring.cloud}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>${spring.feign}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${spring.cloud}</version>
             </dependency>
             <!--spring cloud end-->
