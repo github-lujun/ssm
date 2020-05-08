@@ -31,7 +31,10 @@
     </modules>
 
     <properties>
+        <time>2.8.1</time>
+        <guava>16.0.1</guava>
         <json>2.10.3</json>
+        <slf4j>1.7.30</slf4j>
         <log4j>1.2.17</log4j>
         <commonlogging>1.2</commonlogging>
         <logback>1.2.3</logback>
@@ -47,11 +50,18 @@
         <mybatis.spring.boot>2.1.0</mybatis.spring.boot>
         <aspectj>1.9.4</aspectj>
         <spring>5.2.4.RELEASE</spring>
+        <httpclient>4.5.3</httpclient>
         <redis>3.2.0</redis>
         <mq>5.8.0</mq>
         <netty>5.0.0.Alpha2</netty>
         <shiro>1.5.1</shiro>
         <spring.boot>2.2.5.RELEASE</spring.boot>
+        <eureka>1.9.17</eureka>
+        <rxjava>1.3.8</rxjava>
+        <reactor-core>3.3.3.RELEASE</reactor-core>
+        <servo-core>0.12.21</servo-core>
+        <archaius-core>0.7.6</archaius-core>
+        <woodstox-core>5.2.1</woodstox-core>
         <spring.cloud>2.2.2.RELEASE</spring.cloud>
         <dubbo>2.7.5</dubbo>
         <curator>4.3.0</curator><!--dubbo dependcy-->
@@ -63,7 +73,40 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--time start-->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${time}</version>
+            </dependency>
+            <!--time end-->
+
+
+
+            <!--guava start-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava}</version>
+            </dependency>
+            <!--guava end-->
+
             <!--json start-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${json}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${json}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${json}</version>
+            </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
@@ -72,6 +115,11 @@
             <!--json end-->
 
             <!--log start-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j}</version>
+            </dependency>
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
@@ -184,6 +232,14 @@
             </dependency>
             <!--spring framework end-->
 
+            <!--httpclient start-->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient}</version>
+            </dependency>
+            <!--httpclient end-->
+
             <!--redis start-->
             <dependency>
                 <groupId>redis.clients</groupId>
@@ -238,9 +294,45 @@
 
             <!--spring cloud start-->
             <dependency>
+                <groupId>io.reactivex</groupId>
+                <artifactId>rxjava</artifactId>
+                <version>${rxjava}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>${reactor-core}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.netflix.servo</groupId>
+                <artifactId>servo-core</artifactId>
+                <version>${servo-core}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.netflix.archaius</groupId>
+                <artifactId>archaius-core</artifactId>
+                <version>${archaius-core}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.woodstox</groupId>
+                <artifactId>woodstox-core</artifactId>
+                <version>${woodstox-core}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-config-server</artifactId>
                 <version>${spring.cloud}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.netflix.eureka</groupId>
+                <artifactId>eureka-client</artifactId>
+                <version>${eureka}</version>
             </dependency>
 
             <dependency>
@@ -303,6 +395,12 @@
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>${tomcat}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
