@@ -3,9 +3,27 @@ spring:
     name: feign
 
 server:
-  port: 8768
+  port: 8782
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+
+
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
