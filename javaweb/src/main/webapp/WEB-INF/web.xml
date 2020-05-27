@@ -10,7 +10,7 @@
     </context-param>
     <context-param>
         <param-name>jdbc.url</param-name>
-        <param-value>jdbc:mysql://localhost:3306/leo?serverTimezone=UTC</param-value>
+        <param-value>jdbc:mysql://192.168.56.102:3306/leo?serverTimezone=UTC</param-value>
     </context-param>
     <context-param>
         <param-name>jdbc.username</param-name>
@@ -18,7 +18,7 @@
     </context-param>
     <context-param>
         <param-name>jdbc.password</param-name>
-        <param-value>root</param-value>
+        <param-value>a006N+991230</param-value>
     </context-param>
 
     <!--数据库过滤器-->
