@@ -50,6 +50,14 @@
                 <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <url>https://192.168.56.101/manager/text</url>
+                    <server>tomcat7</server>
+                    <username>admin</username>
+                    <password>admin</password>
+                    <update>true</update>
+                    <path>/javaweb</path>
+                </configuration>
             </plugin>
         </plugins>
     </build>
