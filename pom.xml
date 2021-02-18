@@ -33,7 +33,7 @@
     <properties>
         <time>2.8.1</time>
         <guava>16.0.1</guava>
-        <json>2.10.3</json>
+        <json>2.12.1</json>
         <slf4j>1.7.30</slf4j>
         <log4j>1.2.17</log4j>
         <commonlogging>1.2</commonlogging>
