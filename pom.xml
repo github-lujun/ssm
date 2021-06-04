@@ -50,7 +50,7 @@
         <mybatis.spring.boot>2.1.0</mybatis.spring.boot>
         <aspectj>1.9.4</aspectj>
         <spring>5.2.4.RELEASE</spring>
-        <httpclient>4.5.3</httpclient>
+        <httpclient>4.5.13</httpclient>
         <redis>3.2.0</redis>
         <mq>5.8.0</mq>
         <netty>5.0.0.Alpha2</netty>
