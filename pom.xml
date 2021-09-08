@@ -65,7 +65,7 @@
         <hystrix>1.4.3</hystrix>
         <spring.feign>1.4.7.RELEASE</spring.feign>
         <spring.cloud>2.2.2.RELEASE</spring.cloud>
-        <dubbo>2.7.5</dubbo>
+        <dubbo>2.7.13</dubbo>
         <curator>4.3.0</curator><!--dubbo dependcy-->
         <zookeeper>3.6.0</zookeeper>
         <quartz>2.3.2</quartz>
