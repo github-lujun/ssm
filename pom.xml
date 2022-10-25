@@ -61,7 +61,7 @@
         <reactor-core>3.3.3.RELEASE</reactor-core>
         <servo-core>0.12.21</servo-core>
         <archaius-core>0.7.6</archaius-core>
-        <woodstox-core>5.2.1</woodstox-core>
+        <woodstox-core>5.4.0</woodstox-core>
         <hystrix>1.4.3</hystrix>
         <spring.feign>1.4.7.RELEASE</spring.feign>
         <spring.cloud>2.2.2.RELEASE</spring.cloud>
